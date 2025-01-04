@@ -36,3 +36,89 @@
     transform: rotate(360deg);
   }
 }
+
+/* HomePage.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #2d3748;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.card-email {
+  color: #718096;
+  margin-bottom: 1rem;
+}
+
+.card-company {
+  font-size: 0.875rem;
+  color: #a0aec0;
+}
+
+.card-footer {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  background-color: #3182ce;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #2b6cb0;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 5rem 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.error {
+  color: #e53e3e;
+}

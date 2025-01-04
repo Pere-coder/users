@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import styles from '../css/UserDetails.module.css'
 
 export default function UserDetails() {
   const [user, setUser] = useState(null)
@@ -28,46 +29,44 @@ export default function UserDetails() {
   }, [id])
 
   if (loading) {
-    return <div className="text-center">Loading...</div>
+    return <div className={styles.loading}>Loading...</div>
   }
 
   if (error) {
-    return <div className="text-center text-red-500">Error: {error}</div>
+    return <div className={styles.error}>Error: {error}</div>
   }
 
   if (!user) {
-    return <div className="text-center">User not found</div>
+    return <div className={styles.notFound}>User not found</div>
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-8">
-      <h1 className="text-3xl font-bold mb-6">{user.name}</h1>
-      <div className="grid gap-4 md:grid-cols-2">
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Contact Information</h2>
+    <div className={styles.container}>
+      <h1 className={styles.title}>{user.name}</h1>
+      <div className={styles.grid}>
+        <div className={styles.section}>
+          <h2 className={styles.sectionTitle}>Contact Information</h2>
           <p><strong>Email:</strong> {user.email || 'N/A'}</p>
           <p><strong>Phone:</strong> {user.phone || 'N/A'}</p>
           <p><strong>Website:</strong> {user.website || 'N/A'}</p>
         </div>
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Address</h2>
+        <div className={styles.section}>
+          <h2 className={styles.sectionTitle}>Address</h2>
           <p>{user.address?.street || 'N/A'}</p>
           <p>{user.address?.suite || 'N/A'}</p>
           <p>{user.address?.city || 'N/A'}, {user.address?.zipcode || 'N/A'}</p>
         </div>
       </div>
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold mb-2">Company</h2>
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Company</h2>
         <p><strong>Name:</strong> {user.company?.name || 'N/A'}</p>
         <p><strong>Catch Phrase:</strong> {user.company?.catchPhrase || 'N/A'}</p>
         <p><strong>BS:</strong> {user.company?.bs || 'N/A'}</p>
       </div>
-      <Link
-        to="/"
-        className="inline-block mt-8 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-colors"
-      >
+      <Link to="/" className={styles.backButton}>
         Back to User List
       </Link>
     </div>
   )
 }
+
